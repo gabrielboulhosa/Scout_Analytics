@@ -34,9 +34,9 @@ export const ProgressaoEDefensivo = ({
         <div className="prograssaoInfo">
           <div className="prograssaoInfoGrafico">
             <RatingChart
-              rating1={valor1?.response?.[0]?.statistics?.[0]?.games?.rating}
-              rating2={valor2?.response?.[0]?.statistics?.[0]?.games?.rating}
-              rating3={valor3?.response?.[0]?.statistics?.[0]?.games?.rating}
+              rating1={valor1?.response?.[0]?.statistics?.[0]?.games?.rating?.toString()}
+              rating2={valor2?.response?.[0]?.statistics?.[0]?.games?.rating?.toString()}
+              rating3={valor3?.response?.[0]?.statistics?.[0]?.games?.rating?.toString()}
             />
           </div>
           <div className="prograssaoInfoGrafico">
