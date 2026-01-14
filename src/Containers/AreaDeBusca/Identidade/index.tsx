@@ -71,11 +71,15 @@ export const IdentidadeJogador = ({ searchPlayer }: identidade) => {
       <BotaoEstilizado
         className="position-badge"
         $cor={eValido ? "green" : "#3b82f6"}
-        onClick={() =>
+        onClick={() => {
+          if (idComparar.length < 1) {
+            alert("adicione pelo menos dois jogadores para comparação!");
+          }
+
           dispatchIdComparar(
-            atualizaIdComparar(searchPlayer.response[0].player.id)
-          )
-        }
+            atualizaIdComparar(Number(searchPlayer.response[0].player.id))
+          );
+        }}
       >
         {eValido ? "Adicionado" : "Comparar"}
       </BotaoEstilizado>
