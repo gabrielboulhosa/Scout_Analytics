@@ -4,13 +4,13 @@ import type { Player } from "../Components/types/type_players";
 type FormState = {
   texto: string;
   id: string;
-  multiplasTemporadas: Player[] | null;
+  idComparar: Player[];
 };
 
 const initialState: FormState = {
   texto: "",
   id: "",
-  multiplasTemporadas: null,
+  idComparar: [],
 };
 
 const formSlice = createSlice({
@@ -23,12 +23,14 @@ const formSlice = createSlice({
     atualizaId: (state, action) => {
       state.id = action.payload;
     },
-    atualizaMultiplasTemporadas: (state, action) => {
-      state.multiplasTemporadas = action.payload;
+    atualizaIdComparar: (state, action) => {
+      if (!state.idComparar.includes(action.payload)) {
+        state.idComparar.push(action.payload);
+      }
     },
   },
 });
 
-export const { atualizaTexto, atualizaId, atualizaMultiplasTemporadas } =
+export const { atualizaTexto, atualizaId, atualizaIdComparar } =
   formSlice.actions;
 export default formSlice.reducer;
