@@ -1,13 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
 import { BotaoEstilizado } from "../../../Components/types/type_botton/style";
 import { ParagrafoEstilo } from "../../../Components/types/type_paragrafo/style";
 import type { ApiResponse } from "../../../Components/types/type_players";
+import type { RootState } from "../../../store/store";
 import { StyleIdentidadeJogador } from "./style";
+import { atualizaIdComparar } from "../../../store/formSlice";
 
 type identidade = {
   searchPlayer: ApiResponse | undefined;
 };
 
 export const IdentidadeJogador = ({ searchPlayer }: identidade) => {
+  const idComparar = useSelector((state: RootState) => state.form.idComparar);
+  const dispatchIdComparar = useDispatch();
+
   if (
     !searchPlayer ||
     !searchPlayer.response ||
@@ -15,6 +21,10 @@ export const IdentidadeJogador = ({ searchPlayer }: identidade) => {
   ) {
     return <div>Limite de API atingido ou jogador não encontrado</div>;
   }
+
+  console.log(idComparar);
+
+  const eValido = idComparar.includes(searchPlayer.response[0].player.id);
   return (
     <StyleIdentidadeJogador>
       <div className="player-image">
@@ -58,8 +68,16 @@ export const IdentidadeJogador = ({ searchPlayer }: identidade) => {
         </div>
       </div>
 
-      <BotaoEstilizado className="position-badge" $cor={"#3b82f6"}>
-        Comparar
+      <BotaoEstilizado
+        className="position-badge"
+        $cor={eValido ? "green" : "#3b82f6"}
+        onClick={() =>
+          dispatchIdComparar(
+            atualizaIdComparar(searchPlayer.response[0].player.id)
+          )
+        }
+      >
+        {eValido ? "Adicionado" : "Comparar"}
       </BotaoEstilizado>
     </StyleIdentidadeJogador>
   );

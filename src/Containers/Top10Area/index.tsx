@@ -1,4 +1,3 @@
-import { BotaoEstilizado } from "../../Components/types/type_botton/style";
 import { ParagrafoEstilo } from "../../Components/types/type_paragrafo/style";
 import { AreaTop10 } from "./style";
 
@@ -11,6 +10,7 @@ export function Top10Area() {
   const id = useSelector((state: RootState) => state.form.id);
   const dispatch = useDispatch();
   const { data: players, isLoading } = useGetTop20Query();
+
   if (isLoading) {
     return <div>Carregando...</div>;
   }
@@ -34,7 +34,6 @@ export function Top10Area() {
               <ParagrafoEstilo $cor={"#F3F4F6"} $fonte={20}>
                 {item.player.name}
               </ParagrafoEstilo>
-              <BotaoEstilizado $cor={"#F3F4F6"}>Comparar</BotaoEstilizado>
             </div>
             {/*campo da area 2*/}
             <div className="area2">

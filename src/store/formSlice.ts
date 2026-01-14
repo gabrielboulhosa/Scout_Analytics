@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { Player } from "../Components/types/type_players";
 
 type FormState = {
   texto: string;
   id: string;
-  idComparar: Player[];
+  idComparar: number[];
 };
 
 const initialState: FormState = {

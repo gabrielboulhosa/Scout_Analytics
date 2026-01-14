@@ -41,7 +41,7 @@ export const AreaTop10 = styled.section`
           height: 70px;
           border: 1px solid #f3f4f6;
           border-radius: 12px;
-          margin-right: 10px;
+          margin-right: 15px;
           object-fit: cover;
         }
 
