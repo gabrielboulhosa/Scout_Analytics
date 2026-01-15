@@ -4,11 +4,15 @@ import { AreaTop10 } from "./style";
 import { useGetTop20Query } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
-import { atualizaId } from "../../store/formSlice";
+import { atualizaId, atualizaIdComparar } from "../../store/formSlice";
+import { BotaoEstilizado } from "../../Components/types/type_botton/style";
 
 export function Top10Area() {
   const id = useSelector((state: RootState) => state.form.id);
   const dispatch = useDispatch();
+
+  const idComparar = useSelector((state: RootState) => state.form.idComparar);
+  const dispatchIdComparar = useDispatch();
   const { data: players, isLoading } = useGetTop20Query();
 
   if (isLoading) {
@@ -19,60 +23,83 @@ export function Top10Area() {
   }
   console.log(players);
   console.log(id);
+
   return (
     <AreaTop10>
       <ul>
         {/*campo da area 1*/}
-        {players?.response.map((item) => (
-          <li
-            key={item.player.id}
-            onClick={() => dispatch(atualizaId(item.player.id))}
-          >
-            <div className="area1">
-              <img src={item.player.photo} alt="" />
+        {players?.response.map((item) => {
+          const eValido = idComparar.includes(item.player.id);
 
-              <ParagrafoEstilo $cor={"#F3F4F6"} $fonte={20}>
-                {item.player.name}
-              </ParagrafoEstilo>
-            </div>
-            {/*campo da area 2*/}
-            <div className="area2">
-              <div>
-                <span>Jogos</span>{" "}
-                <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
-                  {item.statistics?.[0]?.games?.appearences || "N/A"}
+          return (
+            <li
+              key={item.player.id}
+              onClick={() => dispatch(atualizaId(item.player.id))}
+            >
+              <div className="area1">
+                <img src={item.player.photo} alt="" />
+
+                <ParagrafoEstilo $cor={"#F3F4F6"} $fonte={20}>
+                  {item.player.name}
                 </ParagrafoEstilo>
+
+                <BotaoEstilizado
+                  $cor={eValido ? "green" : "#F3F4F6"}
+                  $color={eValido ? "#F3F4F6" : "black"}
+                  $hover={eValido ? "none" : "#3b82f6"}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    dispatchIdComparar(atualizaIdComparar(item.player.id));
+
+                    if (idComparar.length < 1) {
+                      alert(
+                        "adicione pelo menos dois jogadores para comparação!"
+                      );
+                    }
+                  }}
+                >
+                  {eValido ? "Adicionado" : "Comparar"}
+                </BotaoEstilizado>
               </div>
-              <div>
-                <span>Gols</span>{" "}
-                <ParagrafoEstilo $fonte={20} $cor={"#3b82f6"}>
-                  {item.statistics?.[0]?.goals?.total || "N/A"}
-                </ParagrafoEstilo>
+              {/*campo da area 2*/}
+              <div className="area2">
+                <div>
+                  <span>Jogos</span>{" "}
+                  <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
+                    {item.statistics?.[0]?.games?.appearences || "N/A"}
+                  </ParagrafoEstilo>
+                </div>
+                <div>
+                  <span>Gols</span>{" "}
+                  <ParagrafoEstilo $fonte={20} $cor={"#3b82f6"}>
+                    {item.statistics?.[0]?.goals?.total || "N/A"}
+                  </ParagrafoEstilo>
+                </div>
+                <div>
+                  <span>Assist.</span>{" "}
+                  <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
+                    {item.statistics?.[0]?.goals?.assists || "N/A"}
+                  </ParagrafoEstilo>
+                </div>
+                <div>
+                  <span>G/J</span>{" "}
+                  <ParagrafoEstilo $fonte={20} $cor={"#22C55E"}>
+                    {Number(item.statistics?.[0]?.games?.rating).toFixed(2) ||
+                      "N/A"}
+                  </ParagrafoEstilo>
+                </div>
               </div>
-              <div>
-                <span>Assist.</span>{" "}
-                <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
-                  {item.statistics?.[0]?.goals?.assists || "N/A"}
-                </ParagrafoEstilo>
+              {/*campo da borda*/}
+              <div className="borda"></div>
+              {/*campo da area 3*/}
+              <div className="area3">
+                <span>{item.player.nationality}</span>
+                <span>{item.player.age} anos</span>
+                <span>{item.statistics?.[0]?.team?.name || "N/A"}</span>
               </div>
-              <div>
-                <span>G/J</span>{" "}
-                <ParagrafoEstilo $fonte={20} $cor={"#22C55E"}>
-                  {Number(item.statistics?.[0]?.games?.rating).toFixed(2) ||
-                    "N/A"}
-                </ParagrafoEstilo>
-              </div>
-            </div>
-            {/*campo da borda*/}
-            <div className="borda"></div>
-            {/*campo da area 3*/}
-            <div className="area3">
-              <span>{item.player.nationality}</span>
-              <span>{item.player.age} anos</span>
-              <span>{item.statistics?.[0]?.team?.name || "N/A"}</span>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </AreaTop10>
   );
