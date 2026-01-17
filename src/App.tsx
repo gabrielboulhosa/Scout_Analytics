@@ -1,7 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Cabecalho } from "./Containers/Cabecalho";
-import { Top10 } from "./Containers/Top10";
-import { Top10Area } from "./Containers/Top10Area";
+
+{
+  /*
+  import { Top10 } from "./Containers/Top10";
+  import { Top10Area } from "./Containers/Top10Area";
+  
+  */
+}
 import { useLazyBuscaridQuery, useLazyBuscarNomeQuery } from "./Services/api";
 import { DesempenhoEAtributos } from "./Containers/AreaDeBusca/DesempenhoEAtributos";
 import { HistóricoDeTemporadas } from "./Containers/AreaDeBusca/HistóricoDeTemporadas";
@@ -12,6 +18,8 @@ import type { RootState } from "./store/store";
 import { useEffect } from "react";
 import { atualizaId } from "./store/formSlice";
 import { SelecaoDeJogador } from "./Containers/AreaDeBusca/SelecaoDeJogador";
+import { HeaderArea } from "./Containers/Area_De_Comparacao/Header";
+import { AreaPerfil } from "./Containers/Area_De_Comparacao/AreaPerfil";
 
 function App() {
   const texto = useSelector((state: RootState) => state.form.texto);
@@ -73,8 +81,13 @@ function App() {
           </>
         ) : (
           <>
+            <HeaderArea />
+            <AreaPerfil />
+            {/*
+         
             <Top10 />
             <Top10Area />
+         */}
           </>
         )}
       </Container>
