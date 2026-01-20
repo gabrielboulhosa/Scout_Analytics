@@ -1,22 +1,28 @@
 import { ParagrafoEstilo } from "../../../Components/types/type_paragrafo/style";
+import type { ApiResponse } from "../../../Components/types/type_players";
 import { AreaPerfilContainer, AreaPerfilInfo } from "./style";
 
-export const AreaPerfil = () => {
+type AreaPerfilProps = {
+  player1: ApiResponse | undefined;
+  player2: ApiResponse | undefined;
+};
+
+export const AreaPerfil = ({ player1, player2 }: AreaPerfilProps) => {
   return (
     <>
       <AreaPerfilContainer>
         <AreaPerfilInfo>
           <div className="areaPerfilImg">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBhVVSMM4g2bdFx0S6Vw2jzXfTlT01XelwmA&s"
+              src={player1?.response[0].player.photo}
               alt="foto do jogador"
             />
           </div>
           <div className="areaPerfilInfoText">
             <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
-              Cristiano Ronaldo
+              {player1?.response[0].player.name}
             </ParagrafoEstilo>
-            <h3>Al-Nassr</h3>
+            <h3>{player1?.response[0].statistics[0].team.name}</h3>
           </div>
         </AreaPerfilInfo>
 
@@ -27,15 +33,15 @@ export const AreaPerfil = () => {
         <AreaPerfilInfo>
           <div className="areaPerfilImg">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBhVVSMM4g2bdFx0S6Vw2jzXfTlT01XelwmA&s"
+              src={player2?.response[0].player.photo}
               alt="foto do jogador"
             />
           </div>
           <div className="areaPerfilInfoText">
             <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
-              Cristiano Ronaldo
+              {player2?.response[0].player.name}
             </ParagrafoEstilo>
-            <h3>Al-Nassr</h3>
+            <h3>{player2?.response[0].statistics[0].team.name}</h3>
           </div>
         </AreaPerfilInfo>
       </AreaPerfilContainer>

@@ -8,8 +8,9 @@ export const AreaPerfilContainer = styled.main`
   justify-items: center;
   align-items: center;
   padding: 20px 0;
-  background-color: #1f2937;
-  border: 1px solid #374151;
+  background-color: #10192bff;
+  border: 1px solid #ffffff14;
+  border-top: none;
 
   .areaCentral {
     span {
@@ -28,7 +29,7 @@ export const AreaPerfilInfo = styled.section`
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1px solid white;
+      border: 1px solid #f3f4f6;
     }
   }
 

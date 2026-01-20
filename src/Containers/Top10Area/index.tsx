@@ -53,7 +53,7 @@ export function Top10Area() {
 
                     if (idComparar.length < 1) {
                       alert(
-                        "adicione pelo menos dois jogadores para comparação!"
+                        "adicione pelo menos dois jogadores para comparação!",
                       );
                     }
                   }}

@@ -4,9 +4,9 @@ export const HeaderContainer = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border: 1px solid #374151;
   padding: 16px;
-  background-color: #1f2937;
+  background-color: #10192bff;
+  border: 1px solid #ffffff14;
 
   span {
     color: #f3f4f6;

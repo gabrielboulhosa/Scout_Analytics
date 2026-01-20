@@ -23,13 +23,23 @@ const formSlice = createSlice({
       state.id = action.payload;
     },
     atualizaIdComparar: (state, action) => {
-      if (!state.idComparar.includes(action.payload)) {
+      if (
+        !state.idComparar.includes(action.payload) &&
+        state.idComparar.length < 2
+      ) {
         state.idComparar.push(action.payload);
       }
+    },
+    limparIdComparar: (state) => {
+      state.idComparar = [];
     },
   },
 });
 
-export const { atualizaTexto, atualizaId, atualizaIdComparar } =
-  formSlice.actions;
+export const {
+  atualizaTexto,
+  atualizaId,
+  atualizaIdComparar,
+  limparIdComparar,
+} = formSlice.actions;
 export default formSlice.reducer;

@@ -1,14 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Cabecalho } from "./Containers/Cabecalho";
 
+import {
+  useIdComparacaoQuery,
+  useLazyBuscaridQuery,
+  useLazyBuscarNomeQuery,
+} from "./Services/api";
 {
-  /*
-  import { Top10 } from "./Containers/Top10";
-  import { Top10Area } from "./Containers/Top10Area";
+  /* 
   
   */
 }
-import { useLazyBuscaridQuery, useLazyBuscarNomeQuery } from "./Services/api";
+import { Top10 } from "./Containers/Top10";
+import { Top10Area } from "./Containers/Top10Area";
 import { DesempenhoEAtributos } from "./Containers/AreaDeBusca/DesempenhoEAtributos";
 import { HistóricoDeTemporadas } from "./Containers/AreaDeBusca/HistóricoDeTemporadas";
 import { IdentidadeJogador } from "./Containers/AreaDeBusca/Identidade";
@@ -30,6 +34,10 @@ function App() {
   const [buscarId, { data: searchId, isLoading: isLoadingId, reset: resetId }] =
     useLazyBuscaridQuery();
 
+  const idComparar = useSelector((state: RootState) => state.form.idComparar);
+  const { data: playersComparar, isLoading: isLoadingComparar } =
+    useIdComparacaoQuery(idComparar);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (texto) {
@@ -45,13 +53,24 @@ function App() {
       buscarId(id);
     }
   }, [id]);
+  console.log(playersComparar);
 
   return (
     <>
       <GlobalStyle />
       <Cabecalho onSubmit={handleSubmit} />
       <Container>
-        {isLoading || isLoadingId ? (
+        {isLoadingComparar ? (
+          <h1>carregando...</h1>
+        ) : playersComparar?.length === 2 ? (
+          <>
+            <HeaderArea />
+            <AreaPerfil
+              player1={playersComparar?.[0]}
+              player2={playersComparar?.[1]}
+            />
+          </>
+        ) : isLoading || isLoadingId ? (
           <h1>carregando...</h1>
         ) : searchId ? (
           searchId?.[0]?.response?.length === 0 ? (
@@ -81,13 +100,12 @@ function App() {
           </>
         ) : (
           <>
-            <HeaderArea />
-            <AreaPerfil />
             {/*
-         
+          
+          */}
+
             <Top10 />
             <Top10Area />
-         */}
           </>
         )}
       </Container>

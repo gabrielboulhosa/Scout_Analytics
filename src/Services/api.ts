@@ -28,8 +28,36 @@ export const footballApi = createApi({
               headers: {
                 "x-apisports-key": import.meta.env.VITE_API_FOOTBALL_KEY,
               },
-            }
-          ).then((res) => res.json())
+            },
+          ).then((res) => res.json()),
+        );
+
+        try {
+          const results = await Promise.all(promises);
+          return { data: results };
+        } catch (error) {
+          return {
+            error: {
+              status: "FETCH_ERROR",
+              error: String(error),
+            },
+          };
+        }
+      },
+    }),
+
+    idComparacao: builder.query<ApiResponse[], number[]>({
+      queryFn: async (playsId) => {
+        const playsComparacao = playsId;
+        const promises = playsComparacao.map((playsId) =>
+          fetch(
+            `https://v3.football.api-sports.io/players?id=${playsId}&league=71&season=2024`,
+            {
+              headers: {
+                "x-apisports-key": import.meta.env.VITE_API_FOOTBALL_KEY,
+              },
+            },
+          ).then((res) => res.json()),
         );
 
         try {
@@ -54,4 +82,5 @@ export const {
   useLazyBuscarNomeQuery,
   useBuscaridQuery,
   useLazyBuscaridQuery,
+  useIdComparacaoQuery,
 } = footballApi;
