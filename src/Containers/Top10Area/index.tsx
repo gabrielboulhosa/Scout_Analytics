@@ -1,13 +1,16 @@
 import { ParagrafoEstilo } from "../../Components/types/type_paragrafo/style";
 import { AreaTop10 } from "./style";
+import { Popup } from "../../Components/Popup";
 
 import { useGetTop20Query } from "../../Services/api";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import { atualizaId, atualizaIdComparar } from "../../store/formSlice";
 import { BotaoEstilizado } from "../../Components/types/type_botton/style";
+import { useState } from "react";
 
 export function Top10Area() {
+  const [showPopup, setShowPopup] = useState(false);
   const id = useSelector((state: RootState) => state.form.id);
   const dispatch = useDispatch();
 
@@ -26,6 +29,11 @@ export function Top10Area() {
 
   return (
     <AreaTop10>
+      <Popup
+        isOpen={showPopup}
+        onClose={() => setShowPopup(false)}
+        message="Adicione pelo menos dois jogadores para comparação!"
+      />
       <ul>
         {/*campo da area 1*/}
         {players?.response.map((item) => {
@@ -52,9 +60,7 @@ export function Top10Area() {
                     dispatchIdComparar(atualizaIdComparar(item.player.id));
 
                     if (idComparar.length < 1) {
-                      alert(
-                        "adicione pelo menos dois jogadores para comparação!",
-                      );
+                      setShowPopup(true);
                     }
                   }}
                 >

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AreaPerfilContainer = styled.main`
+export const AreaComparacaoContainer = styled.main`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -20,10 +20,10 @@ export const AreaPerfilContainer = styled.main`
   }
 `;
 
-export const AreaPerfilInfo = styled.section`
+export const AreaComparacaoInfo = styled.section`
   text-align: center;
   padding: 10px 10px;
-  .areaPerfilImg {
+  .areaComparacaoImg {
     img {
       width: 150px;
       height: 150px;
@@ -33,7 +33,7 @@ export const AreaPerfilInfo = styled.section`
     }
   }
 
-  .areaPerfilInfoText {
+  .areaComparacaoInfoText {
   padding-top: 10px;
   
   } 

@@ -6,11 +6,7 @@ import {
   useLazyBuscaridQuery,
   useLazyBuscarNomeQuery,
 } from "./Services/api";
-{
-  /* 
-  
-  */
-}
+
 import { Top10 } from "./Containers/Top10";
 import { Top10Area } from "./Containers/Top10Area";
 import { DesempenhoEAtributos } from "./Containers/AreaDeBusca/DesempenhoEAtributos";
@@ -23,7 +19,8 @@ import { useEffect } from "react";
 import { atualizaId } from "./store/formSlice";
 import { SelecaoDeJogador } from "./Containers/AreaDeBusca/SelecaoDeJogador";
 import { HeaderArea } from "./Containers/Area_De_Comparacao/Header";
-import { AreaPerfil } from "./Containers/Area_De_Comparacao/AreaPerfil";
+import { AreaComparacao } from "./Containers/Area_De_Comparacao/AreaPerfil";
+import { AreaComparacaoStatistics } from "./Containers/Area_De_Comparacao/AreaComparacaoStatistics";
 
 function App() {
   const texto = useSelector((state: RootState) => state.form.texto);
@@ -65,9 +62,13 @@ function App() {
         ) : playersComparar?.length === 2 ? (
           <>
             <HeaderArea />
-            <AreaPerfil
-              player1={playersComparar?.[0]}
-              player2={playersComparar?.[1]}
+            <AreaComparacao
+              playerInfos1={playersComparar?.[0]}
+              playerInfos2={playersComparar?.[1]}
+            />
+            <AreaComparacaoStatistics
+              playerInfos1={playersComparar?.[0]}
+              playerInfos2={playersComparar?.[1]}
             />
           </>
         ) : isLoading || isLoadingId ? (
@@ -100,10 +101,6 @@ function App() {
           </>
         ) : (
           <>
-            {/*
-          
-          */}
-
             <Top10 />
             <Top10Area />
           </>

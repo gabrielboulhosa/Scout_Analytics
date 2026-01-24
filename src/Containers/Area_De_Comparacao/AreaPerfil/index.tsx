@@ -1,50 +1,63 @@
 import { ParagrafoEstilo } from "../../../Components/types/type_paragrafo/style";
 import type { ApiResponse } from "../../../Components/types/type_players";
-import { AreaPerfilContainer, AreaPerfilInfo } from "./style";
+import { AreaComparacaoContainer, AreaComparacaoInfo } from "./style";
 
-type AreaPerfilProps = {
-  player1: ApiResponse | undefined;
-  player2: ApiResponse | undefined;
+type AreaComparacaoProps = {
+  playerInfos1: ApiResponse | undefined;
+  playerInfos2: ApiResponse | undefined;
 };
 
-export const AreaPerfil = ({ player1, player2 }: AreaPerfilProps) => {
+export const AreaComparacao = ({
+  playerInfos1,
+  playerInfos2,
+}: AreaComparacaoProps) => {
+  // Validação: verificar se os dados existem
+  if (
+    !playerInfos1?.response?.[0] ||
+    !playerInfos2?.response?.[0] ||
+    !playerInfos1?.response?.[0]?.statistics?.[0] ||
+    !playerInfos2?.response?.[0]?.statistics?.[0]
+  ) {
+    return null;
+  }
+
   return (
     <>
-      <AreaPerfilContainer>
-        <AreaPerfilInfo>
-          <div className="areaPerfilImg">
+      <AreaComparacaoContainer>
+        <AreaComparacaoInfo>
+          <div className="areaComparacaoImg">
             <img
-              src={player1?.response[0].player.photo}
+              src={playerInfos1?.response[0].player.photo}
               alt="foto do jogador"
             />
           </div>
-          <div className="areaPerfilInfoText">
+          <div className="areaComparacaoInfoText">
             <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
-              {player1?.response[0].player.name}
+              {playerInfos1?.response[0].player.name}
             </ParagrafoEstilo>
-            <h3>{player1?.response[0].statistics[0].team.name}</h3>
+            <h3>{playerInfos1?.response[0].statistics[0].team.name}</h3>
           </div>
-        </AreaPerfilInfo>
+        </AreaComparacaoInfo>
 
         <div className="areaCentral">
           <span>VS</span>
         </div>
 
-        <AreaPerfilInfo>
-          <div className="areaPerfilImg">
+        <AreaComparacaoInfo>
+          <div className="areaComparacaoImg">
             <img
-              src={player2?.response[0].player.photo}
+              src={playerInfos2?.response[0].player.photo}
               alt="foto do jogador"
             />
           </div>
-          <div className="areaPerfilInfoText">
+          <div className="areaComparacaoInfoText">
             <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
-              {player2?.response[0].player.name}
+              {playerInfos2?.response[0].player.name}
             </ParagrafoEstilo>
-            <h3>{player2?.response[0].statistics[0].team.name}</h3>
+            <h3>{playerInfos2?.response[0].statistics[0].team.name}</h3>
           </div>
-        </AreaPerfilInfo>
-      </AreaPerfilContainer>
+        </AreaComparacaoInfo>
+      </AreaComparacaoContainer>
     </>
   );
 };

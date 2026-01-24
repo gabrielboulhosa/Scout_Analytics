@@ -7,6 +7,7 @@ export type Player = {
     nationality: string;
     age: number;
     height: number;
+    weight: number;
   };
   statistics: Array<{
     shots: {
@@ -39,6 +40,7 @@ export type Player = {
     goals: {
       total: number;
       assists: number;
+      average: number;
     };
     passes: {
       total: number;
