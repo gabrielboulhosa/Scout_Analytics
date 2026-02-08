@@ -49,6 +49,16 @@ export const footballApi = createApi({
     idComparacao: builder.query<ApiResponse[], number[]>({
       queryFn: async (playsId) => {
         const playsComparacao = playsId;
+        if (playsComparacao.length !== 2) {
+          return {
+            error: {
+              status: "CUSTOM_ERROR" as const,
+              error:
+                "É necessário fornecer exatamente 2 IDs de jogadores para comparação.",
+              data: "INVALID_INPUT",
+            },
+          };
+        }
         const promises = playsComparacao.map((playsId) =>
           fetch(
             `https://v3.football.api-sports.io/players?id=${playsId}&league=71&season=2024`,

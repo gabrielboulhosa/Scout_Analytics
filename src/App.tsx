@@ -32,8 +32,8 @@ function App() {
     useLazyBuscaridQuery();
 
   const idComparar = useSelector((state: RootState) => state.form.idComparar);
-  const { data: playersComparar, isLoading: isLoadingComparar } =
-    useIdComparacaoQuery(idComparar);
+  const { data: playersComparar, isFetching: isFetchingComparar } =
+    useIdComparacaoQuery(idComparar, { skip: idComparar.length !== 2 });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,9 +57,9 @@ function App() {
       <GlobalStyle />
       <Cabecalho onSubmit={handleSubmit} />
       <Container>
-        {isLoadingComparar ? (
+        {isFetchingComparar ? (
           <h1>carregando...</h1>
-        ) : playersComparar?.length === 2 ? (
+        ) : playersComparar?.length === 2 && idComparar.length === 2 ? (
           <>
             <HeaderArea />
             <AreaComparacao
