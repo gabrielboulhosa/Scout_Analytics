@@ -78,7 +78,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player1.peso > statsPlayer.Player2.peso
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.peso === statsPlayer.Player2.peso
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.peso}
@@ -93,7 +95,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player2.peso > statsPlayer.Player1.peso
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.peso === statsPlayer.Player1.peso
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.peso}
@@ -106,7 +110,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player1.altura > statsPlayer.Player2.altura
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.altura === statsPlayer.Player2.altura
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.altura}
@@ -121,7 +127,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player2.altura > statsPlayer.Player1.altura
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.altura === statsPlayer.Player1.altura
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.altura}
@@ -134,7 +142,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player1.idade < statsPlayer.Player2.idade
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.idade === statsPlayer.Player2.idade
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.idade}
@@ -149,7 +159,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player2.idade < statsPlayer.Player1.idade
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.idade === statsPlayer.Player1.idade
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.idade}
@@ -162,7 +174,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player1.jogos > statsPlayer.Player2.jogos
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.jogos === statsPlayer.Player2.jogos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.jogos}
@@ -177,7 +191,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player2.jogos > statsPlayer.Player1.jogos
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.jogos === statsPlayer.Player1.jogos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.jogos}
@@ -190,7 +206,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player1.gols > statsPlayer.Player2.gols
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.gols === statsPlayer.Player2.gols
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.gols}
@@ -205,7 +223,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player2.gols > statsPlayer.Player1.gols
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.gols === statsPlayer.Player1.gols
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.gols}
@@ -219,7 +239,10 @@ export const AreaComparacaoStatistics = ({
               statsPlayer.Player1.Assistências >
               statsPlayer.Player2.Assistências
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.Assistências ===
+                    statsPlayer.Player2.Assistências
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.Assistências}
@@ -235,7 +258,10 @@ export const AreaComparacaoStatistics = ({
               statsPlayer.Player2.Assistências >
               statsPlayer.Player1.Assistências
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.Assistências ===
+                    statsPlayer.Player1.Assistências
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.Assistências}
@@ -248,7 +274,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player1.minutos > statsPlayer.Player2.minutos
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.minutos === statsPlayer.Player2.minutos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.minutos}
@@ -263,7 +291,9 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player2.minutos > statsPlayer.Player1.minutos
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.minutos === statsPlayer.Player1.minutos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.minutos}
@@ -276,7 +306,10 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player1.golsPorJogo > statsPlayer.Player2.golsPorJogo
                 ? "green"
-                : "red"
+                : statsPlayer.Player1.golsPorJogo ===
+                    statsPlayer.Player2.golsPorJogo
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.golsPorJogo.toFixed(2)}
@@ -291,7 +324,10 @@ export const AreaComparacaoStatistics = ({
             $cor={
               statsPlayer.Player2.golsPorJogo > statsPlayer.Player1.golsPorJogo
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.golsPorJogo ===
+                    statsPlayer.Player1.golsPorJogo
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.golsPorJogo.toFixed(2)}
@@ -305,7 +341,10 @@ export const AreaComparacaoStatistics = ({
               statsPlayer.Player1.cartoesAmarelos <
               statsPlayer.Player2.cartoesAmarelos
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.cartoesAmarelos ===
+                    statsPlayer.Player1.cartoesAmarelos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.cartoesAmarelos}
@@ -321,7 +360,10 @@ export const AreaComparacaoStatistics = ({
               statsPlayer.Player2.cartoesAmarelos <
               statsPlayer.Player1.cartoesAmarelos
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.cartoesAmarelos ===
+                    statsPlayer.Player1.cartoesAmarelos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.cartoesAmarelos}
@@ -335,7 +377,10 @@ export const AreaComparacaoStatistics = ({
               statsPlayer.Player1.cartoesVermelhos <
               statsPlayer.Player2.cartoesVermelhos
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.cartoesVermelhos ===
+                    statsPlayer.Player1.cartoesVermelhos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player1.cartoesVermelhos}
@@ -351,7 +396,10 @@ export const AreaComparacaoStatistics = ({
               statsPlayer.Player2.cartoesVermelhos <
               statsPlayer.Player1.cartoesVermelhos
                 ? "green"
-                : "red"
+                : statsPlayer.Player2.cartoesVermelhos ===
+                    statsPlayer.Player1.cartoesVermelhos
+                  ? "#F3F4F6"
+                  : "red"
             }
           >
             {statsPlayer.Player2.cartoesVermelhos}
