@@ -58,7 +58,7 @@ function App() {
       <Cabecalho onSubmit={handleSubmit} />
       <Container>
         {isFetchingComparar ? (
-          <h1>carregando...</h1>
+          <div className="loader"></div>
         ) : playersComparar?.length === 2 && idComparar.length === 2 ? (
           <>
             <HeaderArea />
@@ -72,7 +72,7 @@ function App() {
             />
           </>
         ) : isLoading || isLoadingId ? (
-          <h1>carregando...</h1>
+          <div className="loader"></div>
         ) : searchId ? (
           searchId?.[0]?.response?.length === 0 ? (
             <h1>Jogador não encontrado. Tente outro nome ou ID.</h1>

@@ -19,7 +19,7 @@ export function Top10Area() {
   const { data: players, isLoading } = useGetTop20Query();
 
   if (isLoading) {
-    return <div>Carregando...</div>;
+    return <div className="loader"></div>;
   }
   if (!players || !players.response || players.response.length === 0) {
     return <div>Limite de API atingido ou jogador não encontrado</div>;

@@ -95,3 +95,68 @@ export const AreaTop10 = styled.section`
     }
   }
 `;
+
+export const SkeletonCard = styled.div`
+  background-color: #10192bff;
+  border: 1px solid #ffffff14;
+  border-radius: 15px;
+  padding: 10px;
+
+  .skeleton-area1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .skeleton-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #1a2332 25%, #242d3f 50%, #1a2332 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    .skeleton-text {
+      flex: 1;
+      height: 20px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #1a2332 25%, #242d3f 50%, #1a2332 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    .skeleton-button {
+      width: 100px;
+      height: 30px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #1a2332 25%, #242d3f 50%, #1a2332 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+  }
+
+  .skeleton-area2 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 10px;
+
+    .skeleton-stat {
+      width: 60px;
+      height: 40px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #1a2332 25%, #242d3f 50%, #1a2332 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+`;

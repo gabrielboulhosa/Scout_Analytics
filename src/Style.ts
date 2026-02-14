@@ -29,8 +29,8 @@ export const Container = styled.div`
   .loader {
     width: 130px;
     height: 130px;
-    border: 8px solid #e5e7eb;
-    border-top: 8px solid #3b82f6;
+    border: 10px solid #e5e7eb;
+    border-top: 10px solid #3b82f6;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     text-align: center;
