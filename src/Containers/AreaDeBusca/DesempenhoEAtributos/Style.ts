@@ -5,6 +5,10 @@ export const MainContainer = styled.main`
   display: grid;
   grid-template-columns: 69% 29%;
   grid-gap: 2%;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 100%;
+  }
 `;
 
 export const SectionDesempenhoContainer = styled.section`
@@ -32,6 +36,12 @@ export const SectionDesempenhoContainer = styled.section`
       color: gray;
       padding-bottom: 10px;
       padding-top: 10px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    ul {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 `;

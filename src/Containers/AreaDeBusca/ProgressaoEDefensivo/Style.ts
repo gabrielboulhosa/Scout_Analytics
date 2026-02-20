@@ -11,6 +11,16 @@ export const SectionProgressaoContainern = styled.section`
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2%;
     gap: 10px;
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
   }
 `;
 

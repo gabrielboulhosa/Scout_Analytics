@@ -31,17 +31,45 @@ export const CabecalhoContainer = styled.header`
     background-color: #d6d8dbff;
   }
 
-  button {
-    margin-left: 10px;
-    padding: 10px 10px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background-color: #f3f4f6;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      margin-bottom: 10px;
+    }
 
-    &:hover {
-      background-color: #3b82f6;
-      color: #f3f4f6;
+    button {
+      display: none;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    button {
+      display: none;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    input {
+      width: 70%;
+      padding: 10px;
     }
   }
 `;

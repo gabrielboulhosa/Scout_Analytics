@@ -23,9 +23,6 @@ export function Cabecalho(Props: Props) {
             value={texto}
             onChange={(e) => dispatch(atualizaTexto(e.target.value))}
           />
-          <button type="submit">
-            <i className="fi fi-rr-search"></i>
-          </button>
         </form>
       </CabecalhoContainer>
     </header>

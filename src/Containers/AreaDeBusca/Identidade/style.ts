@@ -17,7 +17,7 @@ export const StyleIdentidadeJogador = styled.section`
 
     img {
       width: 120px;
-      height: 100%;
+      height: 120px;
       border-radius: 12px;
       object-fit: cover;
     }
@@ -81,5 +81,65 @@ export const StyleIdentidadeJogador = styled.section`
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+  }
+
+  @media (max-width: 766px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+
+    .player-image {
+      margin-right: 0;
+      margin-bottom: 12px;
+
+      img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .number {
+        bottom: -8px;
+      }
+    }
+
+    .player-info {
+      width: 100%;
+      text-align: center;
+
+      .full-name {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      .details {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        align-items: center;
+      }
+
+      p,
+      span {
+        text-align: center;
+      }
+    }
+
+    .position-badge {
+      margin-top: 12px;
+      align-self: center;
+      padding: 6px 14px;
+    }
+  }
+
+  @media (min-width: 767px) and (max-width: 1024px) {
+    .player-image {
+      height: 140px;
+      img {
+        width: 120px;
+        height: 140px;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+    }
   }
 `;
