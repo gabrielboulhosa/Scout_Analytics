@@ -16,6 +16,7 @@ export const AreaComparacaoContainer = styled.main`
     span {
       font-size: 24px;
       font-weight: bold;
+      color: #f3f4f6;
     }
   }
 `;
@@ -30,6 +31,16 @@ export const AreaComparacaoInfo = styled.section`
       border-radius: 50%;
       object-fit: cover;
       border: 1px solid #f3f4f6;
+
+      @media (max-width: 768px) {
+        width: 120px;
+        height: 120px;
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        width: 150px;
+        height: 150px;
+      }
     }
   }
 
@@ -42,12 +53,8 @@ export const AreaComparacaoInfo = styled.section`
       padding: 10px 0;
     }
   }
+}
 
-  .areaCentral {
-    span {
-      font-size: 24px;
-      font-weight: bold;
-      color: #f3f4f6;
-    }
-  }
+
+
 `;

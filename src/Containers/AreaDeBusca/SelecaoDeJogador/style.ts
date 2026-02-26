@@ -15,6 +15,14 @@ export const SelecaoDeJogadorContainer = styled.section`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2%;
     gap: 10px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   li {

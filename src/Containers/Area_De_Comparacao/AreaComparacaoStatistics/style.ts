@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const AreaComparacaoStatisticsContainer = styled.main`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-items: center;
   align-items: center;
@@ -17,6 +17,14 @@ export const AreaComparacaoStatisticsContainer = styled.main`
       color: #f3f4f6;
       font-size: 20px;
       font-weight: bold;
+
+      @media (max-width: 768px) {
+        font-size: 1em;
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        font-size: 1.2em;
+      }
     }
   }
 `;
