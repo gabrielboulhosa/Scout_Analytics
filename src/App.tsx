@@ -21,6 +21,7 @@ import { SelecaoDeJogador } from "./Containers/AreaDeBusca/SelecaoDeJogador";
 import { HeaderArea } from "./Containers/Area_De_Comparacao/Header";
 import { AreaComparacao } from "./Containers/Area_De_Comparacao/AreaPerfil";
 import { AreaComparacaoStatistics } from "./Containers/Area_De_Comparacao/AreaComparacaoStatistics";
+import { Header_Voltat } from "./Containers/Header_Voltat";
 
 function App() {
   // Estado do formulário global (Redux): texto digitado e ID informado
@@ -103,6 +104,13 @@ function App() {
     if (searchId) {
       return (
         <>
+          <Header_Voltat
+            onVoltar={() => {
+              dispatch(atualizaId(""));
+              resetId();
+              resetNome();
+            }}
+          />
           <IdentidadeJogador searchPlayer={searchId?.[0]} />
           <DesempenhoEAtributos searchPlayer={searchId?.[0]} />
           <ProgressaoEDefensivo
