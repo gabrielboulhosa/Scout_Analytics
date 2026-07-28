@@ -24,7 +24,7 @@ import { AreaComparacaoStatistics } from "./Containers/Area_De_Comparacao/AreaCo
 import { Header_Voltat } from "./Containers/Header_Voltat";
 
 function App() {
-  // Estado do formulário global (Redux): texto digitado e ID informado
+  // Estado do formulário global (Redux): texto digitado e ID informados
   const texto = useSelector((state: RootState) => state.form.texto);
   const id = useSelector((state: RootState) => state.form.id);
   const dispatch = useDispatch();
