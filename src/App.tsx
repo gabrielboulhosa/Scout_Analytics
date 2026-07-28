@@ -53,7 +53,7 @@ function App() {
   };
 
   useEffect(() => {
-    // Sempre que o ID muda, limpa o resultado por nome e busca os dados por ID
+    // Sempre que o ID muda, limpa o resultado por nome e busca os dados por IDs
     if (id) {
       resetNome();
       buscarId(id);
