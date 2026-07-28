@@ -60,7 +60,7 @@ function App() {
     }
   }, [id, buscarId, resetNome]);
 
-  // Flag que define quando os dados de comparação já estão prontos para exibir (dois jogadores selecionados)
+  // Flag que define quando os dados de comparação já estão prontos para exibir
   const isComparacaoPronta =
     playersComparar?.length === 2 && idComparar.length === 2;
 
