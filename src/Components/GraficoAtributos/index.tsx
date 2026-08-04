@@ -18,7 +18,6 @@ const data = [
   { subject: "Visão", A: 98, fullMark: 150 },
 ];
 
-export default function SimpleRadarChart() {
   return (
     <StyleSimpleRadarChart>
       <div style={{ width: "100%", height: "265px", padding: "10px 10px" }}>
