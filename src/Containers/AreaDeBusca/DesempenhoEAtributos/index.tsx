@@ -82,7 +82,35 @@ export const DesempenhoEAtributos = ({
         <ParagrafoEstilo $fonte={20} $cor={"#F3F4F6"}>
           Perfil de Atributos
         </ParagrafoEstilo>
-        <SimpleRadarChart />
+        <SimpleRadarChart
+          atributo1={Math.min(
+            (searchPlayer?.response[0].statistics[0].duels.total || 0) * 5,
+            100,
+          )}
+          atributo2={Math.min(
+            (searchPlayer?.response[0].statistics[0].dribbles.attempts || 0) *
+              2,
+            100,
+          )}
+          atributo3={Math.min(
+            (searchPlayer?.response[0].statistics[0].passes.total || 0) / 4,
+            100,
+          )}
+          atributo4={Math.min(
+            (searchPlayer?.response[0].statistics[0].duels.total || 0) / 3,
+            100,
+          )}
+          atributo5={Math.min(
+            (searchPlayer?.response[0].statistics[0].tackles.total || 0) +
+              (searchPlayer?.response[0].statistics[0].tackles.interceptions ||
+                0) *
+                4,
+          )}
+          atributo6={Math.min(
+            (searchPlayer?.response[0].statistics[0].passes.total || 0) / 4,
+            100,
+          )}
+        />
       </AsideAtributosContainer>
     </MainContainer>
   );
