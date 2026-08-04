@@ -27,7 +27,7 @@ export const DesempenhoEAtributos = ({
             <ParagrafoEstilo $fonte={30} $cor={"#F3F4F6"}>
               {searchPlayer?.response[0].statistics[0].games.rating
                 ? Number(
-                    searchPlayer.response[0].statistics[0].games.rating
+                    searchPlayer.response[0].statistics[0].games.rating,
                   ).toFixed(1)
                 : "N/A"}
             </ParagrafoEstilo>
