@@ -112,7 +112,7 @@ function App() {
             }}
           />
           <IdentidadeJogador searchPlayer={searchId?.[0]} />
-          <DesempenhoEAtributos searchPlayer={searchId?.[0]} />
+          <DesempenhoEAtributos searchPlayer={searchId} />
           <ProgressaoEDefensivo
             valor1={searchId?.[0]}
             valor2={searchId?.[1]}
